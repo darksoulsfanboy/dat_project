@@ -5,6 +5,7 @@ using UnityEngine;
 public class DeadState : EnemyState
 {
     protected D_DeadState deadState;
+
     public DeadState(Entity entity, EnemyFiniteStateMachine stateMachine, string animBoolName, D_DeadState deadState) : base(entity, stateMachine, animBoolName)
     {
         this.deadState = deadState;
@@ -21,9 +22,7 @@ public class DeadState : EnemyState
 
         GameObject.Instantiate(deadState.deathBloodParticle, entity.transform.position, deadState.deathBloodParticle.transform.rotation);
         GameObject.Instantiate(deadState.deathChunkParticle, entity.transform.position, deadState.deathChunkParticle.transform.rotation);
-
         entity.gameObject.SetActive(false);
-
     }
 
     public override void Exit()

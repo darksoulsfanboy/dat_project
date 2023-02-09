@@ -22,6 +22,7 @@ public class Enemy1 : Entity
     [SerializeField] private D_DeadState deadStateData;
 
     [SerializeField] private Transform meleeAttackPos;
+    [SerializeField] private Transform healthBarPos;
 
     public override void Awake()
     {

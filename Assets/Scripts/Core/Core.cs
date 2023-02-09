@@ -5,8 +5,6 @@ using System.Linq;
 
 public class Core : MonoBehaviour
 {
-    
-
     private readonly List<CoreComponent> CoreComponents = new List<CoreComponent> ();
 
     private void Awake()
@@ -20,6 +18,8 @@ public class Core : MonoBehaviour
         {
             component.LogicUpdate();
         }
+
+
     }
 
     public void AddComponent(CoreComponent component)

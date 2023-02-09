@@ -2,13 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Stats : CoreComponent
 {
     public event Action OnHealthZero;
 
+    [SerializeField] private HealthBar healthBar;
     [SerializeField] private float maxHealth;
-    private float currentHealth;
+    protected float currentHealth { get; private set; }
+    public float CurrentHealth => currentHealth;
 
     protected override void Awake()
     {
@@ -20,6 +23,7 @@ public class Stats : CoreComponent
     public void DecreaseHealth(float amount)
     {
         currentHealth -= amount;
+        healthBar.SetHealth(currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -32,5 +36,6 @@ public class Stats : CoreComponent
     public void IncreaseHealth(float amount)
     {
         currentHealth += Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        healthBar.SetHealth(currentHealth);
     }
 }

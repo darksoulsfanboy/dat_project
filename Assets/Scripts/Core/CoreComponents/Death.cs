@@ -5,6 +5,8 @@ using UnityEngine;
 public class Death : CoreComponent
 {
     [SerializeField] private GameObject[] deathParticles;
+    [SerializeField] private Stats playerStats;
+    [SerializeField] private float hpToIncrease = 5;
 
     private ParticleManager ParticleManager =>
         particleManager ? particleManager : core.GetCoreComponent<ParticleManager>();
@@ -22,6 +24,8 @@ public class Death : CoreComponent
         }
 
         core.transform.parent.gameObject.SetActive(false);
+        playerStats.IncreaseHealth(hpToIncrease);
+
     }
 
     private void OnEnable()
