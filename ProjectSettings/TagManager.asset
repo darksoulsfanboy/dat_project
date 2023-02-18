@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - ParticleContainer
+  - MiddleElev
+  - UpperElev
+  - DownElev
   layers:
   - Default
   - TransparentFX
