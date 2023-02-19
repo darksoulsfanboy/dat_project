@@ -31,5 +31,4 @@ public class HealthBar : MonoBehaviour
             healthBar.value -= Time.deltaTime * hpPerSecond;
         }
     }
-
 }

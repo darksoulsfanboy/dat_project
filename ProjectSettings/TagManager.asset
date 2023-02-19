@@ -8,6 +8,9 @@ TagManager:
   - MiddleElev
   - UpperElev
   - DownElev
+  - Invincible
+  - Interactable
+  - Meme
   layers:
   - Default
   - TransparentFX
@@ -20,8 +23,8 @@ TagManager:
   - Enemy
   - Damageable
   - Weapon
-  - 
-  - 
+  - Interactable
+  - Meme
   - 
   - 
   - 

@@ -35,6 +35,9 @@ public class PlayerMoveState : PlayerGroundedState
         {
             stateMachine.ChangeState(player.IdleState);
         }
+
+        if (rollInput)
+            stateMachine.ChangeState(player.RollState);
     }
 
     public override void PhysicsUpdate()

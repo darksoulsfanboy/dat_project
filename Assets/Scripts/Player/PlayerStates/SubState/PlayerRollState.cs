@@ -8,6 +8,7 @@ public class PlayerRollState : PlayerAbilityState
 
     private Vector2 rollDirecton;
     private float lastRollTime;
+    private float originVelocity;
 
     public PlayerRollState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
@@ -17,9 +18,10 @@ public class PlayerRollState : PlayerAbilityState
     {
         base.Enter();
 
-        player.gameObject.layer = 0;
+        player.gameObject.tag = "Invincible";
+        player.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 100);
         rollDirecton = Vector2.right * Movement.FacingDirection;
-        Movement?.SetVelocityX(playerData.rollVelocity * rollDirecton.x);
+        Movement?.GetComponentInParent<Rigidbody2D>().AddForce(rollDirecton * playerData.rollVelocity);
         CanRoll = false;
         isAbilityDone = true;
         player.InputHandler.UseRollInput();
@@ -29,7 +31,8 @@ public class PlayerRollState : PlayerAbilityState
     {
         base.Exit();
 
-        player.gameObject.layer = 6;
+        player.gameObject.tag = "Player";
+
     }
 
     public override void LogicUpdate()

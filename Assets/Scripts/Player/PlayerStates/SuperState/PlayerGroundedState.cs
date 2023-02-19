@@ -15,7 +15,7 @@ public class PlayerGroundedState : PlayerState
 
     protected int xInput;
 
-    private bool rollInput;
+    protected bool rollInput;
     private bool jumpInput;
     private bool isGrounded;
 

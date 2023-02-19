@@ -38,4 +38,10 @@ public class Stats : CoreComponent
         currentHealth += Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         healthBar.SetHealth(currentHealth);
     }
+
+    public void Respawn()
+    {
+        IncreaseHealth(maxHealth);
+        core.transform.parent.gameObject.SetActive(true);
+    }
 }
